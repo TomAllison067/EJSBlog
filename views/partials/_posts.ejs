@@ -1,0 +1,15 @@
+<% posts.forEach((post) => { %>
+<div class="post">
+    <h1> <%= post.title %> </h1>
+    <% if (truncatePosts) { %>
+    <% if (post.body.length >= 101) { %>
+    <p> <%= post.body.substring(0, 101) %>...
+        <%   } else { %>
+        <%= post.body %>
+       <% } %>
+        <a href="/posts/<%= post._id %>">Read more</a></p>
+    <% } else { %>
+    <p> <%= post.body %> </p>
+    <% } %>
+</div>
+<% }); %>
