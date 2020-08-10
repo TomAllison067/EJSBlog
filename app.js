@@ -60,8 +60,9 @@ app.post("/compose", (req, res) => {
   let postTitle = req.body.postTitle;
   let postBody = req.body.postBody;
   let newPost = new Post({ title: postTitle, body: postBody });
-  newPost.save();
-  return res.redirect("/");
+  newPost.save(() => {
+    res.redirect('/');
+  });
 });
 
 app.listen(PORT, function () {
